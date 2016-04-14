@@ -1,0 +1,22 @@
+{
+  "smeltery": "top",
+  "redstone": "left",
+  "drains": [
+    {
+      "type":   "ingot",
+      "color":  "green"
+    }
+  , {
+      "type":   "block",
+      "color":  "blue"
+    }
+  , {
+      "type":   "block",
+      "color":  "red"
+    }
+  , {
+      "type":   "block",
+      "color":  "yellow"
+    }
+  ]
+}
