@@ -1,5 +1,5 @@
 shell.run("pastebin get 4nRg9CHU json")
 shell.run("/openp/github get ligerzero459/ComputerCraftSmelteryControl/master/smeltery.lua smeltery")
 shell.run("/openp/github get ligerzero459/ComputerCraftSmelteryControl/master/smeltery_controller.lua smeltery_controller_main")
-shell.run("/openp/github get ligerzero459/ComputerCraftSmelteryControl/master/print_r.lua print_r")
+shell.run("/openp/github get ligerzero459/ComputerCraftSmelteryControl/master/colors.lua colors.lua")
 shell.run("/openp/github get ligerzero459/ComputerCraftSmelteryControl/master/settings.json settings.json")
