@@ -7,7 +7,7 @@
 
 -- DEPENDENCIES
 os.loadAPI(shell.resolve("json"))
-os.loadAPI(shell.resolve("colors.lua"))
+os.loadAPI(shell.resolve("color"))
 
 -- LOCAL VARIABLES
 local smeltery, smeltery_side, rs, redstone_side, settings, drains
@@ -26,10 +26,11 @@ function appSetup()
   blocks = {}
 
   for index, value in pairs(drains) do
-     if value.type == "ingot" then
-       table.insert(ingots, colors.getColor(value.color))
-     elseif value.type == "block" then
-       table.insert(blocks, colors.getColor(value.color))
+    if value.type == "ingot" then
+      table.insert(ingots, color.getColor(value.color))
+    elseif value.type == "block" then
+      table.insert(blocks, color.getColor(value.color))
+    end
   end
 end
 
