@@ -40,16 +40,19 @@ end
 function pourBlocks(blocksToPour)
   
   while blocksToPour ~= 0 do
+    print ("Blocks to pour: "..blocksToPour)
     
     if blocksToPour % table.getn(blocks) ~= 0 then
       for i=1,(blocksToPour % table.getn(blocks)) do
         redstone.setBundledOutput(redstone_side, blocks[i])
+        os.sleep(1)
         redstone.setBundledOutput(redstone_side, 0)
         blocksToPour = blocksToPour - 1
       end
     else
       for i=1,table.getn(blocks) do
         redstone.setBundledOutput(redstone_side, blocks[i])
+        os.sleep(1)
         redstone.setBundledOutput(redstone_side, 0)
         blocksToPour = blocksToPour - 1
       end
@@ -64,16 +67,19 @@ end
 function pourIngots(ingotsToPour)
   
   while ingotsToPour ~= 0 do
+    print ("Ingots to pour: "..ingotsToPour)
     
     if ingotsToPour % table.getn(ingots) ~= 0 then
       for i=1,(ingotsToPour % table.getn(ingots)) do
         redstone.setBundledOutput(redstone_side, ingots[i])
+        os.sleep(1)
         redstone.setBundledOutput(redstone_side, 0)
         ingotsToPour = ingotsToPour - 1
       end
     else
       for i=1,table.getn(ingots) do
         redstone.setBundledOutput(redstone_side, ingots[i])
+        os.sleep(1)
         redstone.setBundledOutput(redstone_side, 0)
         ingotsToPour = ingotsToPour - 1
       end
