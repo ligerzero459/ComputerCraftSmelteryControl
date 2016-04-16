@@ -1,6 +1,6 @@
 --[[
   Automatic Smeltery Control Program
-  Version: 1.0
+  Version: 1.0.1
   Designed By: ligerzero459
   Date: 13 April 2016
 ]]
@@ -38,8 +38,9 @@ function appSetup()
 end
 
 function cutRedstonePulses()
-  os.sleep(2)
+  os.sleep(1)
   redstone.setBundledOutput(redstone_side, 0)
+  op.sleep(1)
 end
 
 function pourBlocks(blocksToPour)
@@ -51,17 +52,17 @@ function pourBlocks(blocksToPour)
       for i=1,(blocksToPour % table.getn(blocks)) do
         redstone.setBundledOutput(redstone_side, blocks[i])
         blocksToPour = blocksToPour - 1
+        cutRedstonePulses()
       end
-      cutRedstonePulses()
     else
       for i=1,table.getn(blocks) do
         redstone.setBundledOutput(redstone_side, blocks[i])
         blocksToPour = blocksToPour - 1
+        cutRedstonePulses()
       end
-      cutRedstonePulses()
     end
     
-    os.sleep(17)
+    os.sleep(14)
     
   end
   
@@ -76,14 +77,14 @@ function pourIngots(ingotsToPour)
       for i=1,(ingotsToPour % table.getn(ingots)) do
         redstone.setBundledOutput(redstone_side, ingots[i])
         ingotsToPour = ingotsToPour - 1
+        cutRedstonePulses()
       end
-      cutRedstonePulses()
     else
       for i=1,table.getn(ingots) do
         redstone.setBundledOutput(redstone_side, ingots[i])
         ingotsToPour = ingotsToPour - 1
+        
       end
-      cutRedstonePulses()
     end
     
     os.sleep(6)
