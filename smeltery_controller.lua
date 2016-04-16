@@ -83,7 +83,7 @@ function pourIngots(ingotsToPour)
       for i=1,table.getn(ingots) do
         redstone.setBundledOutput(redstone_side, ingots[i])
         ingotsToPour = ingotsToPour - 1
-        
+        cutRedstonePulses()
       end
     end
     
