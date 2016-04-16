@@ -85,20 +85,27 @@ function pourIngots(ingotsToPour)
   
 end
 
+-- MAIN START
+
 appSetup()
+print("Initilization complete...")
+print("Monitoring in 5 seconds...")
+os.sleep(6)
 
 while true do
   
   if smeltery.getInfo().contents ~= nil then
     
-    if (smeltery.getInfo().contents / 144) % 9 > 0 then
-      pourIngots((smeltery.getInfo().contents / 144) % 9)
-    elseif (smeltery.getInfo().contents / 144) % 9 == 0 then
-      pourBlocks((smeltery.getInfo().contents / 144) / 9)
+    if (smeltery.getInfo().contents.amount / 144) % 9 > 0 then
+      print("Pouring ingots: " .. smeltery.getInfo().contents.rawName)
+      pourIngots((smeltery.getInfo().contents.amount / 144) % 9)
+    elseif (smeltery.getInfo().contents.amount / 144) % 9 == 0 then
+      print("Pouring blocks: " .. smeltery.getInfo().contents.rawName)
+      pourBlocks((smeltery.getInfo().contents.amount / 144) / 9)
     end
     
   end
   
-  sleep(3)
+  os.sleep(3)
   
 end
