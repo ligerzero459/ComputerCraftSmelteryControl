@@ -40,7 +40,7 @@ end
 function cutRedstonePulses()
   os.sleep(1)
   redstone.setBundledOutput(redstone_side, 0)
-  op.sleep(1)
+  os.sleep(1)
 end
 
 function pourBlocks(blocksToPour)
