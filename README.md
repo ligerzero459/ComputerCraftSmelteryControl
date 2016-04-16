@@ -5,4 +5,4 @@ Welcome to a new, interesting way to control your smeltery with ComputerCraft. T
 
 Version 1.0 currently uses only one computer, but version 2.0 will feature monitoring that will require a second computer.
 
-To install smeltery control script, start up you ComputerCraft computer and enter `pastebin get rP8pMQw6 setup.lua`. That will download the `setup.lua` script. Run `setup.lua` and the remaining files will be pulled from the repo.
+To install smeltery control script, start up your ComputerCraft computer, create a folder for the program and enter `/openp/github get ligerzero459/ComputerCraftSmelteryControl/master/setup.lua  setup.lua`. That will download the `setup.lua` script. Run `setup.lua` and the remaining files will be pulled from the repo.
