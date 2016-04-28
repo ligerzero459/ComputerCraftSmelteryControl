@@ -10,7 +10,7 @@ os.loadAPI(shell.resolve("json"))
 os.loadAPI(shell.resolve("color"))
 
 -- LOCAL VARIABLES
-local smeltery, smeltery_side, rs, redstone_side, settings, drains
+local smeltery, smeltery_side, rs, redstone_side, settings, drains, liquid_name
 local ingots, blocks
 
 function appSetup()
@@ -48,6 +48,12 @@ function pourBlocks(blocksToPour)
   while blocksToPour ~= 0 do
     print ("Blocks to pour: "..blocksToPour)
     
+    if liquid_name ~= smeltery.getInfo().contents.rawName then
+      print("Liquid swapped. Pausing for 10 seconds...")
+      os.sleep(10)
+      return
+    end
+    
     if blocksToPour % table.getn(blocks) ~= 0 then
       for i=1,(blocksToPour % table.getn(blocks)) do
         redstone.setBundledOutput(redstone_side, blocks[i])
@@ -72,6 +78,12 @@ function pourIngots(ingotsToPour)
   
   while ingotsToPour ~= 0 do
     print ("Ingots to pour: "..ingotsToPour)
+    
+    if liquid_name ~= smeltery.getInfo().contents.rawName then
+      print("Liquid swapped. Pausing for 10 seconds...")
+      os.sleep(10)
+      return
+    end
     
     if ingotsToPour % table.getn(ingots) ~= 0 then
       for i=1,(ingotsToPour % table.getn(ingots)) do
@@ -104,11 +116,16 @@ while true do
   
   if smeltery.getInfo().contents ~= nil then
     
-    if (smeltery.getInfo().contents.amount / 144) % 9 > 0 then
-      print("Pouring ingots: " .. smeltery.getInfo().contents.rawName)
+    liquid_name = smeltery.getInfo().contents.rawName
+    
+    if (smeltery.getInfo().contents.amount == smeltery.getInfo().capacity) then
+      print("Smeltery full. Pouring portion of blocks: " .. liquid_name)
+      pourBlocks(math.floor(((smeltery.getInfo().contents.amount / 144) / 9) / 4))
+    elseif (smeltery.getInfo().contents.amount / 144) % 9 > 0 then
+      print("Pouring ingots: " .. liquid_name)
       pourIngots((smeltery.getInfo().contents.amount / 144) % 9)
     elseif (smeltery.getInfo().contents.amount / 144) % 9 == 0 then
-      print("Pouring blocks: " .. smeltery.getInfo().contents.rawName)
+      print("Pouring blocks: " .. liquid_name)
       pourBlocks((smeltery.getInfo().contents.amount / 144) / 9)
     end
     
