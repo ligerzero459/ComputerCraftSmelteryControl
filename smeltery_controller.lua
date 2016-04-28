@@ -1,6 +1,6 @@
 --[[
   Automatic Smeltery Control Program
-  Version: 1.0.1
+  Version: 1.0.2
   Designed By: ligerzero459
   Date: 13 April 2016
 ]]
